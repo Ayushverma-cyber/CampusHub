@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api/attendance'
+const API = 'https://campushub-production-b658.up.railway.app/api/attendance'
 
 // GET attendance records
 export const getAttendance = async () => {

@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api/auth'
+const API = 'https://campushub-production-b658.up.railway.app/api/auth'
 
 export const loginUser = async (credentials) => {
 const response = await fetch(`${API}/login`, {

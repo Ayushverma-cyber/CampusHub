@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api/grades'
+const API = 'https://campushub-production-b658.up.railway.app/api/grades'
 
 // GET all grades
 export const getGrades = async () => {

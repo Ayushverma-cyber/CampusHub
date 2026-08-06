@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api/batches'
+const API = 'https://campushub-production-b658.up.railway.app/api/batches'
 
 // GET batches
 export const getBatches = async () => {

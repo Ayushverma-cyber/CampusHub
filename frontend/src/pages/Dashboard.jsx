@@ -38,16 +38,16 @@ function Dashboard() {
       const [attendanceRes, gradesRes, batchRes, coursesRes] =
         await Promise.all([
           fetch(
-            `http://localhost:5000/api/students/student-attendance/${user.email}`
+            `https://campushub-production-b658.up.railway.app/api/students/student-attendance/${user.email}`
           ),
           fetch(
-            `http://localhost:5000/api/students/student-grades/${user.email}`
+            `https://campushub-production-b658.up.railway.app/api/students/student-grades/${user.email}`
           ),
           fetch(
-            `http://localhost:5000/api/students/student-batch/${user.email}`
+            `https://campushub-production-b658.up.railway.app/api/students/student-batch/${user.email}`
           ),
           fetch(
-            `http://localhost:5000/api/students/student-courses/${user.email}`
+            `https://campushub-production-b658.up.railway.app/api/students/student-courses/${user.email}`
           ),
         ])
 
@@ -65,7 +65,7 @@ function Dashboard() {
   const loadAdminData = async () => {
     try {
       const response = await fetch(
-        'http://localhost:5000/api/dashboard/stats'
+        'https://campushub-production-b658.up.railway.app/api/dashboard/stats'
       )
 
       const data = await response.json()

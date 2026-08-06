@@ -9,7 +9,7 @@ const Create = () => {
   const onSubmit = async (data) => {
   try {
     const response = await fetch(
-      'http://localhost:5000/api/courses',
+      'https://campushub-production-b658.up.railway.app/api/courses',
       {
         method: 'POST',
         headers: {

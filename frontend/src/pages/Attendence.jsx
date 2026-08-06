@@ -32,7 +32,7 @@ function Attendence() {
       // Student: load only own attendance
       if (isStudent) {
         const response = await fetch(
-          `http://localhost:5000/api/student-attendance/${user.email}`
+          `https://campushub-production-b658.up.railway.app/api/student-attendance/${user.email}`
         )
 
         const data = await response.json()

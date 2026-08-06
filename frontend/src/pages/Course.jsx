@@ -15,12 +15,12 @@ fetchCourses()
 
 const fetchCourses = async () => {
 try {
-let url = 'http://localhost:5000/api/courses'
+let url = 'https://campushub-production-b658.up.railway.app/api/courses'
 
 
   // Students see only enrolled courses
   if (role === 'student') {
-    url = `http://localhost:5000/api/students/student-courses/${user.email}`
+    url = `https://campushub-production-b658.up.railway.app/api/students/student-courses/${user.email}`
   }
 
   const response = await fetch(url)
