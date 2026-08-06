@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-
 function Navbar() {
-  const user = JSON.parse(localStorage.getItem('user'))
+ const user = JSON.parse(localStorage.getItem('user'))
+
   const role = user?.role
 
   return (
@@ -80,18 +80,26 @@ function Navbar() {
 
         </div>
 
-        <div className="flex items-center justify-end">
-          <Link
-            to="/delete"
-            className="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-rose-500/10 hover:text-rose-300 lg:text-base"
-          >
-            Logout
-          </Link>
-        </div>
+       <div className="flex items-center gap-4">
+  <div className="text-right hidden sm:block">
+    <p className="text-sm font-semibold text-white">
+      {user?.name || 'User'}
+    </p>
+    <p className="text-xs text-slate-400 capitalize">
+      {user?.role || 'guest'}
+    </p>
+  </div>
 
-      </div>
+  <Link
+    to="/delete"
+    className="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-rose-500/10 hover:text-rose-300 lg:text-base"
+  >
+    Logout
+  </Link>
+</div>
+</div>
     </nav>
   )
-}
+  }
 
 export default Navbar
