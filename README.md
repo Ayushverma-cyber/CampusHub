@@ -54,19 +54,24 @@ A full-stack **role-based Student Management System** that allows administrators
 
 ## Project Structure
 
+```text
 CampusHub/
 ├── backend/
 │   ├── routes/
 │   ├── db.js
 │   ├── server.js
 │   └── package.json
+│
 ├── frontend/
 │   ├── src/
 │   ├── public/
 │   └── package.json
-├── screenshots/
+│
 ├── README.md
 └── .gitignore
+```
+
+
 
 ## Installation
 
