@@ -54,28 +54,26 @@ A full-stack **role-based Student Management System** that allows administrators
 
 ## Project Structure
 
-```text
 CampusHub/
+├── backend/
+│   ├── routes/
+│   ├── db.js
+│   ├── server.js
+│   └── package.json
 ├── frontend/
 │   ├── src/
 │   ├── public/
 │   └── package.json
-├── backend/
-│   ├── routes/
-│   ├── services/
-│   ├── db.js
-│   └── package.json
-└── README.md
-```
-
----
+├── screenshots/
+├── README.md
+└── .gitignore
 
 ## Installation
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/CampusHub.git
+git clone https://github.com/Ayushverma-cyber/CampusHub.git
 cd CampusHub
 ```
 
@@ -176,43 +174,6 @@ backend/db.js
 
 ---
 
-## Screenshots
-
-Add screenshots inside a folder named `screenshots/` and update the paths below.
-
-### Login
-
-![Login](screenshots/login.png)
-
-### Admin Dashboard
-
-![Admin Dashboard](screenshots/admin-dashboard.png)
-
-### Student Dashboard
-
-![Student Dashboard](screenshots/student-dashboard.png)
-
-### Students
-
-![Students](screenshots/students.png)
-
-### Attendance
-
-![Attendance](screenshots/attendance.png)
-
-### Grades
-
-![Grades](screenshots/grades.png)
-
-### Batches
-
-![Batches](screenshots/batches.png)
-
-### Courses
-
-![Courses](screenshots/courses.png)
-
----
 
 ## Security Features
 
