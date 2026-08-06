@@ -3,6 +3,7 @@ import { Plus, Search, Trash2, Users, Pencil } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { getStudents, deleteStudent } from '../services/studentService'
 import toast from 'react-hot-toast'
+import Loader from '../components/Loader'
 
 function Students() {
 const navigate = useNavigate()
@@ -103,11 +104,7 @@ return ( <div className="max-w-7xl mx-auto p-6 space-y-6">
   </div>
 
   {/* Loading */}
-  {loading && (
-    <div className="text-center text-slate-400 py-10">
-      Loading students...
-    </div>
-  )}
+ {loading && <Loader />}
 
   {/* Error */}
   {error && (
