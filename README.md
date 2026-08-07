@@ -1,7 +1,20 @@
 # CampusHub – Student Management System
 
-A full-stack **role-based Student Management System** that allows administrators and faculty to manage student records, attendance, grades, batches, and courses, while students can securely access only their own academic information.
+![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
+![Express](https://img.shields.io/badge/API-Express-black?logo=express)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange?logo=mysql)
+![Vercel](https://img.shields.io/badge/Frontend%20Hosting-Vercel-black?logo=vercel)
+![Railway](https://img.shields.io/badge/Backend%20Hosting-Railway-purple)
 
+A full-stack **role-based Student Management System** that enables administrators and faculty to manage student records, attendance, grades, batches, and courses, while students can securely access only their own academic information.
+
+---
+
+## Live Demo
+
+* **Frontend:** https://campus-hub-blush-beta.vercel.app
+* **Backend API:**  https://campushub-production-b658.up.railway.app
 ---
 
 ## Features
@@ -71,9 +84,9 @@ CampusHub/
 └── .gitignore
 ```
 
+---
 
-
-## Installation
+## Local Installation
 
 ### 1. Clone the repository
 
@@ -90,7 +103,11 @@ npm install
 npm run dev
 ```
 
-Backend runs on: **https://campushub-production-b658.up.railway.app**
+Backend runs locally on:
+
+```text
+http://localhost:5000
+```
 
 ### 3. Frontend setup
 
@@ -102,19 +119,29 @@ npm install
 npm run dev
 ```
 
-Frontend runs on: **http://localhost:5173**
+Frontend runs locally on:
+
+```text
+http://localhost:5173
+```
 
 ---
 
 ## Database Setup
 
-Create a MySQL database named `campushub` and import your SQL schema.
+1. Create a MySQL database named **campushub**.
+2. Import your SQL schema.
+3. Configure environment variables for the backend:
 
-Update database credentials in:
-
-```text
-backend/db.js
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=campushub
+DB_PORT=3306
 ```
+
+For production deployment, Railway environment variables are used instead of local values.
 
 ---
 
@@ -177,8 +204,24 @@ backend/db.js
 * **Email:** [ayush@campushub.com](mailto:ayush@campushub.com)
 * **Password:** 123456
 
+> These credentials are for demonstration purposes only.
+
 ---
 
+## Deployment
+
+### Frontend
+
+* Hosted on **Vercel**
+* React Router configured using `vercel.json`
+
+### Backend
+
+* Hosted on **Railway**
+* Connected to **Railway MySQL** database
+* Environment variables configured in Railway dashboard
+
+---
 
 ## Security Features
 
@@ -199,18 +242,20 @@ backend/db.js
 * State management with React hooks
 * Form handling with React Hook Form
 * Toast notifications and UX improvements
+* Cloud deployment with Vercel and Railway
 
 ---
 
 ## Future Improvements
 
-* JWT authentication with middleware
+* JWT authentication middleware
 * Password hashing with bcrypt
 * Pagination and search APIs
 * File upload for student documents
 * Email notifications
 * Attendance analytics and charts
-* Cloud deployment (Vercel + Render)
+* Dark/light theme toggle
+* Docker-based deployment
 
 ---
 
@@ -225,4 +270,4 @@ backend/db.js
 
 ## License
 
-This project is for educational and portfolio purposes.
+This project is intended for **educational and portfolio purposes**.
