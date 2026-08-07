@@ -31,20 +31,26 @@ function Login() {
       password,
     })
 
-    // Save token and user in localStorage
+    // Save token
     localStorage.setItem('token', data.token)
+
+    // Save full user object
     localStorage.setItem('user', JSON.stringify(data.user))
 
-    // Update auth context
-    login(data.user)
+    toast.success('Login successful')
 
-    // Redirect after login
-    navigate('/home')
+    // Redirect based on role
+    if (data.user.role === 'admin') {
+      navigate('/dashboard')
+    } else if (data.user.role === 'faculty') {
+      navigate('/dashboard')
+    } else {
+      navigate('/dashboard')
+    }
   } catch (error) {
-    alert(error.message)
+    toast.error(error.message)
   }
 }
-
   const roles = [
     { label: 'Student', icon: UserRound },
     { label: 'Faculty', icon: BookOpen },
