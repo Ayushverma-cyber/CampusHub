@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import toast from 'react-hot-toast'
 import {
   GraduationCap,
   Mail,
@@ -12,7 +13,6 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import { loginUser } from '../services/authService'
-
 function Login() {
   const navigate = useNavigate()
   const { login } = useContext(AuthContext)
@@ -39,18 +39,19 @@ function Login() {
 
     toast.success('Login successful')
 
-    // Redirect based on role
-    if (data.user.role === 'admin') {
-      navigate('/dashboard')
-    } else if (data.user.role === 'faculty') {
-      navigate('/dashboard')
-    } else {
-      navigate('/dashboard')
+    // Update auth context if available
+    if (login) {
+      login(data.user)
     }
+
+    // Redirect to dashboard
+    navigate('/dashboard')
   } catch (error) {
-    toast.error(error.message)
+    console.error(error)
+    toast.error(error.message || 'Login failed')
   }
 }
+
   const roles = [
     { label: 'Student', icon: UserRound },
     { label: 'Faculty', icon: BookOpen },
@@ -155,7 +156,7 @@ function Login() {
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} >
 
                 {/* Email */}
                 <div>
