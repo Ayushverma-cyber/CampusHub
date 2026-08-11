@@ -1,3 +1,5 @@
+![CI](https://github.com/Ayushverma-cyber/CampusHub/actions/workflows/ci.yml/badge.svg)
+
 # CampusHub – Student Management System
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
