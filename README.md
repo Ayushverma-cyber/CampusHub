@@ -1,69 +1,71 @@
-![CI](https://github.com/Ayushverma-cyber/CampusHub/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/Ayushverma-cyber/CampusHub/actions/workflows/ci.yml/badge.svg)](https://github.com/Ayushverma-cyber/CampusHub/actions/workflows/ci.yml)
 
 # CampusHub – Student Management System
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
 ![Express](https://img.shields.io/badge/API-Express-black?logo=express)
-![MySQL](https://img.shields.io/badge/Database-MySQL-orange?logo=mysql)
+![TiDB](https://img.shields.io/badge/Database-TiDB%20Cloud-orange)
 ![Vercel](https://img.shields.io/badge/Frontend%20Hosting-Vercel-black?logo=vercel)
-![Railway](https://img.shields.io/badge/Backend%20Hosting-Railway-purple)
+![Render](https://img.shields.io/badge/Backend%20Hosting-Render-purple?logo=render)
 
-A full-stack **role-based Student Management System** that enables administrators and faculty to manage student records, attendance, grades, batches, and courses, while students can securely access only their own academic information.
+A full-stack **role-based Student Management System** that enables administrators and faculty to manage student records, attendance, grades, batches, and courses, while students can securely access their own academic information.
 
 ---
 
 ## Live Demo
 
-* **Frontend:** https://campus-hub-blush-beta.vercel.app
-* **Backend API:** https://https://campushub-backend-y35m.onrender.com
+- **Frontend:** https://campus-hub-blush-beta.vercel.app
+- **Backend API:** https://campushub-backend-y35m.onrender.com
+
 ---
-  
+
 ## Features
 
 ### Admin
-
-* Add, edit, and delete students
-* Manage attendance records
-* Manage grades and marks
-* Create and manage batches
-* Create and manage courses
+- Add, edit, and delete students.
+- Manage attendance records.
+- Manage grades and marks.
+- Create and manage batches.
+- Create and manage courses.
 
 ### Faculty
-
-* View students
-* Mark attendance
-* Manage grades
-* View batches and courses
+- View student information.
+- Mark attendance.
+- Manage grades.
+- View batches and courses.
 
 ### Student
-
-* Personal dashboard
-* View own attendance
-* View own grades
-* View own batch
-* View enrolled courses only
+- Personal dashboard.
+- View own attendance.
+- View own grades.
+- View assigned batch.
+- View enrolled courses.
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-
-* React
-* React Router
-* Tailwind CSS
-* React Hook Form
-* React Hot Toast
+- React.js
+- React Router
+- Tailwind CSS
+- React Hook Form
+- React Hot Toast
+- Lucide React
 
 ### Backend
-
-* Node.js
-* Express.js
+- Node.js
+- Express.js
+- REST APIs
 
 ### Database
+- TiDB Cloud (MySQL-compatible)
 
-* MySQL
+### Deployment
+- Vercel – Frontend hosting
+- Render – Backend hosting
+- TiDB Cloud – Database hosting
 
 ---
 
@@ -105,12 +107,6 @@ npm install
 npm run dev
 ```
 
-Backend runs locally on:
-
-```text
-http://localhost:5000
-```
-
 ### 3. Frontend setup
 
 Open a new terminal:
@@ -121,29 +117,38 @@ npm install
 npm run dev
 ```
 
-Frontend runs locally on:
+Frontend runs locally at:
 
 ```text
 http://localhost:5173
+```
+
+Backend runs locally at:
+
+```text
+http://localhost:5000
 ```
 
 ---
 
 ## Database Setup
 
-1. Create a MySQL database named **campushub**.
-2. Import your SQL schema.
-3. Configure environment variables for the backend:
+CampusHub uses **TiDB Cloud**, which is compatible with MySQL.
+
+Configure the following environment variables in the backend `.env` file:
 
 ```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=campushub
-DB_PORT=3306
+DB_HOST=your_database_host
+DB_PORT=your_database_port
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=your_database_name
+JWT_SECRET=your_jwt_secret
 ```
 
-For production deployment, Railway environment variables are used instead of local values.
+For production, configure these environment variables in the Render dashboard.
+
+**Important:** Never upload your `.env` file or actual database credentials to GitHub.
 
 ---
 
@@ -151,113 +156,88 @@ For production deployment, Railway environment variables are used instead of loc
 
 ### Authentication
 
-* `POST /api/auth/login`
-* `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/register`
 
 ### Students
 
-* `GET /api/students`
-* `POST /api/students`
-* `PUT /api/students/:id`
-* `DELETE /api/students/:id`
-
-### Student Personal APIs
-
-* `GET /api/students/student-attendance/:email`
-* `GET /api/students/student-grades/:email`
-* `GET /api/students/student-batch/:email`
-* `GET /api/students/student-courses/:email`
+- `GET /api/students`
+- `POST /api/students`
+- `PUT /api/students/:id`
+- `DELETE /api/students/:id`
 
 ### Courses
 
-* `GET /api/courses`
-* `POST /api/courses`
+- `GET /api/courses`
+- `POST /api/courses`
 
 ### Grades
 
-* `GET /api/grades`
-* `POST /api/grades`
-* `PUT /api/grades/:id`
-* `DELETE /api/grades/:id`
+- `GET /api/grades`
+- `POST /api/grades`
+- `PUT /api/grades/:id`
+- `DELETE /api/grades/:id`
 
 ### Batches
 
-* `GET /api/batches`
-* `POST /api/batches`
-* `PUT /api/batches/:id`
-* `DELETE /api/batches/:id`
+- `GET /api/batches`
+- `POST /api/batches`
+- `PUT /api/batches/:id`
+- `DELETE /api/batches/:id`
 
----
-
-## Demo Credentials
-
-### Admin
-
-* **Email:** [admin@campushub.com](mailto:admin@campushub.com)
-* **Password:** 123456
-
-### Faculty
-
-* **Email:** [faculty@campushub.com](mailto:faculty@campushub.com)
-* **Password:** 123456
-
-### Student
-
-* **Email:** [ayush@campushub.com](mailto:ayush@campushub.com)
-* **Password:** 123456
-
-> These credentials are for demonstration purposes only.
+The application also provides student-specific APIs for attendance, grades, batches, and enrolled courses.
 
 ---
 
 ## Deployment
 
 ### Frontend
-
-* Hosted on **Vercel**
-* React Router configured using `vercel.json`
+- Hosted on Vercel.
+- Connected to the GitHub repository.
+- Automatically redeployed when changes are pushed to the configured branch.
 
 ### Backend
+- Hosted on Render.
+- Connected to TiDB Cloud.
+- Production environment variables configured in Render.
 
-* Hosted on **Railway**
-* Connected to **Railway MySQL** database
-* Environment variables configured in Railway dashboard
+### Database
+- Hosted on TiDB Cloud.
+- MySQL-compatible database connection using `mysql2`.
 
 ---
 
 ## Security Features
 
-* Role-based route protection
-* Protected API access
-* Student-specific data filtering
-* Secure login workflow
-* Logout session cleanup
+- Role-based access control (Admin, Faculty, Student).
+- Protected application routes.
+- Student-specific data filtering.
+- JWT-based authentication.
+- Logout and session cleanup.
 
 ---
 
 ## Key Learnings
 
-* Full-stack React + Express development
-* REST API design
-* MySQL database relationships
-* Role-based access control (RBAC)
-* State management with React hooks
-* Form handling with React Hook Form
-* Toast notifications and UX improvements
-* Cloud deployment with Vercel and Railway
+- Full-stack React and Express development.
+- REST API development and integration.
+- MySQL-compatible database management.
+- Role-based access control.
+- State management using React hooks.
+- Form handling and validation.
+- Cloud deployment using Vercel and Render.
+- Database integration using TiDB Cloud.
 
 ---
 
 ## Future Improvements
 
-* JWT authentication middleware
-* Password hashing with bcrypt
-* Pagination and search APIs
-* File upload for student documents
-* Email notifications
-* Attendance analytics and charts
-* Dark/light theme toggle
-* Docker-based deployment
+- Pagination and search functionality.
+- Student document uploads.
+- Email notifications.
+- Attendance analytics and charts.
+- Dark/light theme toggle.
+- Docker-based deployment.
 
 ---
 
@@ -265,11 +245,11 @@ For production deployment, Railway environment variables are used instead of loc
 
 **Ayush Verma**
 
-* GitHub: https://github.com/Ayushverma-cyber
-* LinkedIn: https://www.linkedin.com/in/ayush-verma-596159383/
+- GitHub: https://github.com/Ayushverma-cyber
+- LinkedIn: https://www.linkedin.com/in/ayush-verma-596159383/
 
 ---
 
 ## License
 
-This project is intended for **educational and portfolio purposes**.
+This project is intended for educational and portfolio purposes.
