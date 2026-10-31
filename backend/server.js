@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const db = require('./db')
@@ -11,7 +12,6 @@ const studentAttendanceRoutes = require('./routes/studentAttendance')
 const studentGradesRoutes = require('./routes/studentGrades')
 const studentBatchRoutes = require('./routes/studentBatch')
 const courseRoutes = require('./routes/courses')
-require('dotenv').config()
 
 const app = express()
 
@@ -40,6 +40,13 @@ app.get('/', async (req, res) => {
       error: error.message,
     })
   }
+})
+
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'CampusHub Backend is running'
+  })
 })
 
 app.get('/api/dashboard/stats', async (req, res) => {
@@ -72,6 +79,7 @@ app.get('/api/dashboard/stats', async (req, res) => {
   }
 })
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on http://localhost:${process.env.PORT}`)
+const PORT = process.env.PORT || 5000
+app.listen(PORT,'0.0.0.0', () => {
+  console.log(`CampusHub server running on port ${PORT}`)
 })
