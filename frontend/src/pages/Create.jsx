@@ -9,7 +9,7 @@ const Create = () => {
   const onSubmit = async (data) => {
   try {
     const response = await fetch(
-      'https://https://campushub-backend-y35m.onrender.com/api/courses',
+      'https://campushub-backend-y35m.onrender.com/api/courses',
       {
         method: 'POST',
         headers: {

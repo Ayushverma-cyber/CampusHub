@@ -33,16 +33,16 @@ function Home() {
       const [attendanceRes, gradesRes, batchRes, coursesRes] =
         await Promise.all([
           fetch(
-            `https://https://campushub-backend-y35m.onrender.com/api/students/student-attendance/${user.email}`,
+            `https://campushub-backend-y35m.onrender.com/api/students/student-attendance/${user.email}`,
           ),
           fetch(
-            `https://https://campushub-backend-y35m.onrender.com/api/students/student-grades/${user.email}`,
+            `https://campushub-backend-y35m.onrender.com/api/students/student-grades/${user.email}`,
           ),
           fetch(
-            `https://https://campushub-backend-y35m.onrender.com/api/students/student-batch/${user.email}`,
+            `https://campushub-backend-y35m.onrender.com/api/students/student-batch/${user.email}`,
           ),
           fetch(
-            `https://https://campushub-backend-y35m.onrender.com/api/students/student-courses/${user.email}`,
+            `https://campushub-backend-y35m.onrender.com/api/students/student-courses/${user.email}`,
           ),
         ]);
 
@@ -60,7 +60,7 @@ function Home() {
 
   const loadAdminData = async () => {
     try {
-      const response = await fetch("https://https://campushub-backend-y35m.onrender.com/api/dashboard/stats");
+      const response = await fetch("https://campushub-backend-y35m.onrender.com/api/dashboard/stats");
       const data = await response.json();
       console.log(data);
     } catch (error) {
