@@ -26,26 +26,19 @@ function Login() {
   e.preventDefault()
 
   try {
-    const data = await loginUser({
-      email,
-      password,
-    })
+    const data = await loginUser({ email, password })
 
-    // Save token
-    localStorage.setItem('token', data.token)
-
-    // Save full user object
-    localStorage.setItem('user', JSON.stringify(data.user))
-
-    toast.success('Login successful')
-
-    // Update auth context if available
-    if (login) {
-      login(data.user)
+    // Check selected role
+    if (data.user.role.toLowerCase() !== role.toLowerCase()) {
+      toast.error('Selected role does not match your account')
+      return
     }
 
-    // Redirect to dashboard
+    login(data)
+
+    toast.success('Login successful')
     navigate('/dashboard')
+
   } catch (error) {
     console.error(error)
     toast.error(error.message || 'Login failed')

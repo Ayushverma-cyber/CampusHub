@@ -1,4 +1,4 @@
-const API = 'https://campushub-production-b658.up.railway.app/api/students'
+const API = 'https://campushub-backend-y35m.onrender.com/api/students'
 
 // GET all students
 export const getStudents = async () => {

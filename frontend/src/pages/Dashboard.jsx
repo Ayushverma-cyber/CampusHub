@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import {
   Users,
@@ -7,6 +8,8 @@ import {
   GraduationCap,
 } from 'lucide-react'
 import toast from 'react-hot-toast'
+
+const API = 'https://campushub-backend-y35m.onrender.com'
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user'))
@@ -37,19 +40,15 @@ function Dashboard() {
     try {
       const [attendanceRes, gradesRes, batchRes, coursesRes] =
         await Promise.all([
-          fetch(
-            `https://campushub-production-b658.up.railway.app/api/students/student-attendance/${user.email}`
-          ),
-          fetch(
-            `https://campushub-production-b658.up.railway.app/api/students/student-grades/${user.email}`
-          ),
-          fetch(
-            `https://campushub-production-b658.up.railway.app/api/students/student-batch/${user.email}`
-          ),
-          fetch(
-            `https://campushub-production-b658.up.railway.app/api/students/student-courses/${user.email}`
-          ),
+          fetch(`${API}/api/students/student-attendance/${user.email}`),
+          fetch(`${API}/api/students/student-grades/${user.email}`),
+          fetch(`${API}/api/students/student-batch/${user.email}`),
+          fetch(`${API}/api/students/student-courses/${user.email}`),
         ])
+
+      if (!attendanceRes.ok || !gradesRes.ok || !batchRes.ok || !coursesRes.ok) {
+        throw new Error('Failed to fetch student data')
+      }
 
       setMyAttendance(await attendanceRes.json())
       setMyGrades(await gradesRes.json())
@@ -57,16 +56,18 @@ function Dashboard() {
       setMyCourses(await coursesRes.json())
     } catch (error) {
       console.error(error)
-        toast.error('Failed to load student dashboard')
+      toast.error('Failed to load student dashboard')
     }
   }
 
   // Admin/Faculty dashboard
   const loadAdminData = async () => {
     try {
-      const response = await fetch(
-        'https://campushub-production-b658.up.railway.app/api/dashboard/stats'
-      )
+      const response = await fetch(`${API}/api/dashboard/stats`)
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch dashboard statistics')
+      }
 
       const data = await response.json()
       setStats(data)
@@ -76,7 +77,7 @@ function Dashboard() {
     }
   }
 
-  // ---------- STUDENT VIEW ----------
+  // Student view
   if (role === 'student') {
     const presentCount = myAttendance.filter(
       (a) => a.status === 'Present'
@@ -90,7 +91,7 @@ function Dashboard() {
     const averageMarks =
       myGrades.length > 0
         ? (
-            myGrades.reduce((sum, g) => sum + g.marks, 0) /
+            myGrades.reduce((sum, g) => sum + Number(g.marks), 0) /
             myGrades.length
           ).toFixed(1)
         : 0
@@ -154,13 +155,10 @@ function Dashboard() {
             {myCourses.map((course) => (
               <div
                 key={course.id}
-                className="flex items-center justify-between rounded-xl bg-slate-800 px-4 py-3">
-
+                className="flex items-center justify-between rounded-xl bg-slate-800 px-4 py-3"
+              >
                 <div>
-                  <p className="font-medium">
-                    {course.name}
-                  </p>
-
+                  <p className="font-medium">{course.name}</p>
                   <p className="text-sm text-slate-400">
                     {course.instructor}
                   </p>
@@ -177,7 +175,7 @@ function Dashboard() {
     )
   }
 
-  // ---------- ADMIN/FACULTY VIEW ----------
+  // Admin/Faculty view
   const cards = [
     {
       title: 'Total Students',
@@ -223,8 +221,8 @@ function Dashboard() {
           return (
             <div
               key={card.title}
-              className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
-
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl"
+            >
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-slate-400 text-sm">

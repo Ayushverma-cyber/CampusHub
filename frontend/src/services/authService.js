@@ -1,4 +1,4 @@
-const API = 'https://campushub-production-b658.up.railway.app/api/auth'
+const API = 'https://campushub-backend-y35m.onrender.com/api/auth'
 
 export const loginUser = async (credentials) => {
 const response = await fetch(`${API}/login`, {

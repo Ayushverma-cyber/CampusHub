@@ -16,7 +16,7 @@ A full-stack **role-based Student Management System** that enables administrator
 ## Live Demo
 
 * **Frontend:** https://campus-hub-blush-beta.vercel.app
-* **Backend API:** https://campushub-production-b658.up.railway.app
+* **Backend API:** https://https://campushub-backend-y35m.onrender.com
 ---
   
 ## Features

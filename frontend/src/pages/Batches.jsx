@@ -30,7 +30,7 @@ function Batches() {
       // Student: load only own batch
       if (isStudent) {
         const response = await fetch(
-          `https://campushub-production-b658.up.railway.app/api/students/student-batch/${user.email}`
+          `https://https://campushub-backend-y35m.onrender.com/api/students/student-batch/${user.email}`
         )
 
         const data = await response.json()
